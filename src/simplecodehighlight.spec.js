@@ -28,6 +28,11 @@ describe('Simple Code Hightlight' , function(){
 
         expect(retValue.length).toBeDefined();
         expect(retValue.length).toEqual(14);
+
+        retValue = window.parseCode('<img src="test.jpg" alt="" />');
+
+        expect(retValue.length).toBeDefined();
+        expect(retValue.length).toEqual(1);
     });
 
 
