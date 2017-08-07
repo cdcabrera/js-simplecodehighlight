@@ -4,7 +4,7 @@
   "description": "Super basic code display for JS",
   "scripts": {
     "build": "gulp build",
-    "test": "jshint src/simplecodehighlight.js; karma start"
+    "test": "gulp unit-test"
   },
   "repository": {
     "type": "git",

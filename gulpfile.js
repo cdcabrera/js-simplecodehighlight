@@ -27,6 +27,31 @@ gulp.task('clean', function () {
 
 
 /**
+ * JSHint JS files
+ */
+gulp.task('js-hint', function () {
+
+    return gulp.src(settings.jsMatch)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
+
+/**
+ * Run unit test
+ */
+gulp.task('unit-test', ['js-hint'], function (done) {
+
+    new karma({
+
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+
+    }, done).start();
+});
+
+
+/**
  * Copy to dist
  */
 gulp.task('copy', ['clean'], function () {
@@ -42,7 +67,7 @@ gulp.task('copy', ['clean'], function () {
 /**
  * Concat and distribute files
  */
-gulp.task('build', ['js-hint', 'unit-test', 'clean', 'copy'], function() {
+gulp.task('build', ['unit-test', 'clean', 'copy'], function() {
 
     let version = '//@version ' + settings.version +', '+ settings.date + '\n';
 
@@ -51,39 +76,4 @@ gulp.task('build', ['js-hint', 'unit-test', 'clean', 'copy'], function() {
         .pipe(uglify())
         .pipe(insert.prepend(version))
         .pipe(gulp.dest(settings.dist));
-
-
-    /*return gulp.src(settings.useminFiles)
-        .pipe(usemin({
-            css: [],
-            cssCopy: [],
-            js: [ uglify ],
-            jsCopy: []
-        }))
-        .pipe(gulp.dest(settings.dist));*/
-});
-
-
-/**
- * JSHint JS files
- */
-gulp.task('js-hint', function () {
-
-    return gulp.src(settings.jsMatch)
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
-});
-
-
-/**
- * Run unit test
- */
-gulp.task('unit-test', function (done) {
-
-    new karma({
-
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: true
-
-    }, done).start();
 });

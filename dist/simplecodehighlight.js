@@ -1,6 +1,8 @@
 //@version 1.0.0, Mon Aug 07 2017
 (function(window, undefined) {
 
+    'use strict';
+
     window.parseCode = parseCode;
 
     /**
