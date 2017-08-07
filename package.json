@@ -1,0 +1,33 @@
+{
+  "name": "js-simplecodehighlight",
+  "version": "1.0.0",
+  "description": "Super basic code display for JS",
+  "scripts": {
+    "build": "gulp build",
+    "test": "jshint src/simplecodehighlight.js; karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cdcabrera/js-simplecodehighlight.git"
+  },
+  "author": "CD Cabrera <cabrera.code@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cdcabrera/js-simplecodehighlight/issues"
+  },
+  "homepage": "https://github.com/cdcabrera/js-simplecodehighlight#readme",
+  "devDependencies": {
+    "del": "~3.0.0",
+    "gulp": "~3.9.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-insert": "^0.5.0",
+    "jshint": "^2.9.5",
+    "jasmine-core": "^2.7.0",
+    "karma": "^1.7.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-chrome-launcher": "^2.2.0"
+  }
+}

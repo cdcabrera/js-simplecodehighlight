@@ -1,0 +1,9 @@
+docs
+node_modules
+lib
+src
+test
+*spec.js
+.editorconfig
+karma.conf.js
+gulpfile.js
